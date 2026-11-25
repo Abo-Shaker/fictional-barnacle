@@ -484,6 +484,43 @@ h1.hero{font-size:84px;margin-bottom:12px}
   }
 }
 
+
+/* =========================================================
+   FINISHING POLISH — smooth cards, crisp scrollbar & polish
+   ========================================================= */
+.card {
+  backdrop-filter: blur(4px);
+}
+#topDua {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .35);
+  backdrop-filter: blur(8px);
+}
+.slide-corner-sig {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .22);
+}
+.btn {
+  user-select: none;
+}
+.quiz-q {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-0);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-3);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--line);
+}
+
 </style>
 </head>
 <body>
@@ -505,7 +542,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
   <div class="body center">
     <div class="kicker reveal">CS101 · Fundamentals of Computing · أساسيات الحوسبة</div>
     <h1 class="hero reveal" style="--d:.1s">Number <span class="grad">Systems</span></h1>
-    <span class="ar reveal" style="--d:.18s;font-size:23px;margin-bottom:10px">أنظمة العد وتمثيل البيانات — القصة الكاملة خطوة بخطوة</span>
+    <span class="ar reveal" style="--d:.18s;font-size:23px;margin-bottom:10px">أنظمة العد وتمثيل البيانات — شرح سهل وبسيط خطوة بخطوة</span>
     <p class="lead sub-lead reveal" style="--d:.25s">How computers count, how each conversion &amp; calculation happens step by step, and how to practice every system.</p>
     <div class="pills reveal zoom" style="--d:.48s">
       <span class="pill c-bin pulse">Binary · 2</span>
@@ -521,7 +558,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="Why number systems matter">
   <div class="title-bar reveal">
     <div class="kicker">Motivation · الدافع</div>
-    <h2>Why do number systems matter? <span class="ar-inline">لماذا تهمنا أنظمة العد؟</span></h2>
+    <h2>Why do number systems matter? <span class="ar-inline">أنظمة العد مهمة ليه؟</span></h2>
   </div>
   <div class="body">
     <div class="row" style="flex:1">
@@ -556,7 +593,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
           </svg>
           <p class="cap">How it happened: Each voltage pulse becomes 1 <strong>bit</strong> (خانة ثنائية): HIGH = <code>1</code>, LOW = <code>0</code>.</p>
         </div>
-        <div class="callout reveal" style="--d:.35s">كل ملف أو صورة أو برنامج بيتحول في النهاية لسلسلة بتات، وبنستخدم أنظمة عد مختلفة لتسهيل القراءة والحساب.</div>
+        <div class="callout reveal" style="--d:.35s">أي ملف أو صورة أو برنامج في الآخر بيتحوّل لسلسلة بتّات، وبنستخدم أنظمة عد مختلفة عشان نسهل القراءة والحساب والمقارنة.</div>
       </div>
       <div class="col use-col">
         <div class="use bin frag">
@@ -585,30 +622,31 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="What is a number system?">
   <div class="title-bar reveal">
     <div class="kicker">Foundations · الأساسيات</div>
-    <h2>What is a number system? <span class="ar-inline">ما هو نظام العد؟</span></h2>
+    <h2>What is a number system? <span class="ar-inline">إيه هو نظام العد أصلاً؟</span></h2>
   </div>
   <div class="body" style="gap:14px">
     <div class="callout reveal" style="--d:.1s">A number system combines <strong>symbols</strong>, a <strong>base (b)</strong>, and <strong>place values</strong> so digit position determines its weight.</div>
     <div class="grid g3">
       <div class="card bin reveal pop" style="--d:.22s">
-        <h3>1 · Symbols <span class="ar">الرموز المتاحة</span></h3>
+        <h3>1 · Symbols <span class="ar">الرموز اللي بنستخدمها</span></h3>
         <div class="glyphs c-bin">0 1 &nbsp; 0–7 &nbsp; 0–9 &nbsp; 0–F</div>
         <p>Each system picks <code>b</code> distinct symbols starting from <code>0</code> up to <code>b−1</code>.</p>
       </div>
       <div class="card oct reveal pop" style="--d:.36s">
-        <h3>2 · Base / Radix <span class="ar">أساس النظام</span></h3>
+        <h3>2 · Base / Radix <span class="ar">أساس النظام (الـ Base)</span></h3>
         <div class="glyphs c-oct">b symbols → carry at b</div>
         <p>What happens when a digit passes <code>b−1</code>? It resets to <code>0</code> and carries <code>1</code> to the next place.</p>
       </div>
       <div class="card hex reveal pop" style="--d:.5s">
-        <h3>3 · Place Value <span class="ar">القيمة المكانية</span></h3>
-        <div class="glyphs c-hex">value = digit × b<sup>n</sup></div>
-        <p>Moving one step left multiplies the place weight by <code>b</code> (<code>b⁰, b¹, b²…</code>).</p>
+        <div class="ar" style="text-align:right;color:var(--warn);font-weight:700;font-size:15px;margin-bottom:2px">( للمعرفة فقط )</div>
+        <h3>3 · <del style="text-decoration:line-through;text-decoration-thickness:2.5px;text-decoration-color:var(--bad);color:var(--tx-2)">Place Value</del> <span class="ar"><del style="text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--bad)">قيمة كل خانة</del></span></h3>
+        <div class="glyphs c-hex" style="opacity:.75"><del style="text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--bad)">value = digit × b<sup>n</sup></del></div>
+        <p style="opacity:.75"><del style="text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--bad)">Moving one step left multiplies the place weight by <code>b</code> (<code>b⁰, b¹, b²…</code>).</del></p>
       </div>
     </div>
     <div class="row" style="flex:1">
       <div class="card grow reveal" style="--d:.68s">
-        <h3>How order changes value <span class="ar-inline">أهمية ترتيب الخانات</span></h3>
+        <h3>How order changes value <span class="ar-inline">ترتيب الخانات بيفرق قد إيه</span></h3>
         <p>In <code>13</code> vs <code>31</code>, the digits are identical, but their positions changed — so their weights changed.</p>
       </div>
       <div class="card grow reveal" style="--d:.82s">
@@ -630,17 +668,17 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="The four bases at a glance">
   <div class="title-bar reveal">
     <div class="kicker">Overview · نظرة عامة</div>
-    <h2>The four bases at a glance <span class="ar-inline">الأنظمة الأربعة في لمحة</span></h2>
+    <h2>The four bases at a glance <span class="ar-inline">الأنظمة الأربعة بسرعة</span></h2>
   </div>
   <div class="body" style="gap:16px">
     <div class="grid g4">
       <div class="card bin frag">
-        <div class="bname">Binary <span class="ar">النظام الثنائي</span></div><span class="badge bin">base 2</span>
+        <div class="bname">Binary <span class="ar">الثنائي</span></div><span class="badge bin">base 2</span>
         <div class="field"><span class="lb">Digits · الرموز</span><span class="vl">0 1</span></div>
         <div class="field"><span class="lb">Typical use</span><span class="vl txt">CPU, memory, logic</span></div>
       </div>
       <div class="card oct frag">
-        <div class="bname">Octal <span class="ar">النظام الثماني</span></div><span class="badge oct">base 8</span>
+        <div class="bname">Octal <span class="ar">الثماني</span></div><span class="badge oct">base 8</span>
         <div class="field"><span class="lb">Digits · الرموز</span><span class="vl">0 – 7</span></div>
         <div class="field"><span class="lb">Typical use</span><span class="vl txt">Unix permissions</span></div>
       </div>
@@ -657,7 +695,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
     </div>
     <div class="row frag">
       <div class="card grow">
-        <h3>Hex extra digits <span class="ar-inline">رموز النظام السادس عشري الإضافية</span></h3>
+        <h3>Hex extra digits <span class="ar-inline">رموز السادس عشري الزيادة</span></h3>
         <div class="chips">
           <span class="chip"><b>A</b>10</span><span class="chip"><b>B</b>11</span><span class="chip"><b>C</b>12</span>
           <span class="chip"><b>D</b>13</span><span class="chip"><b>E</b>14</span><span class="chip"><b>F</b>15</span>
@@ -681,13 +719,13 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="Binary &amp; Octal in depth">
   <div class="title-bar reveal">
     <div class="kicker">Base 2 &amp; Base 8</div>
-    <h2>Binary and Octal <span class="ar-inline">النظام الثنائي والثماني بالتفصيل</span></h2>
+    <h2>Binary and Octal <span class="ar-inline">الثنائي والثماني بالتفصيل</span></h2>
   </div>
   <div class="body" style="gap:14px">
     <div class="row" style="flex:1">
       <div class="card bin grow col" style="gap:8px">
         <div class="row" style="justify-content:space-between;align-items:center">
-          <div><span class="bname" style="margin:0">Binary</span><span class="ar">النظام الثنائي (الأساس 2)</span></div>
+          <div><span class="bname" style="margin:0">Binary</span><span class="ar">الثنائي (أساس 2)</span></div>
           <span class="badge bin">base 2</span>
         </div>
         <svg viewBox="0 0 520 96" role="img" aria-label="Binary place values 16, 8, 4, 2, 1">
@@ -707,13 +745,13 @@ h1.hero{font-size:84px;margin-bottom:12px}
         </svg>
         <div class="trace-strip" id="s5BinSteps">
           <div class="step-line" data-step="0"><span class="step-badge">1 · الأسس</span> بنرقّم الخانات من اليمين للشمال: <span class="power-tag">2⁰=1</span> <span class="power-tag">2¹=2</span> <span class="power-tag">2²=4</span> <span class="power-tag">2³=8</span> <span class="power-tag">2⁴=16</span></div>
-          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الضرب والجمع</span> خانات الـ <code>1</code> في <code>10110₂</code> هي: <code>16 + 4 + 2 = 22₁₀</code> (والبايت = 8 بت).</div>
+          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الضرب والجمع</span> اللي منوّر بـ <code>1</code> في <code>10110₂</code> هو: <code>16 + 4 + 2 = 22₁₀</code> (والبايت = 8 بت).</div>
         </div>
       </div>
 
       <div class="card oct grow col" style="gap:8px">
         <div class="row" style="justify-content:space-between;align-items:center">
-          <div><span class="bname" style="margin:0">Octal</span><span class="ar">النظام الثماني (الأساس 8)</span></div>
+          <div><span class="bname" style="margin:0">Octal</span><span class="ar">الثماني (أساس 8)</span></div>
           <span class="badge oct">base 8</span>
         </div>
         <svg viewBox="0 0 520 96" role="img" aria-label="Octal place values 64, 8, 1">
@@ -729,7 +767,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
         </svg>
         <div class="trace-strip" id="s5OctSteps">
           <div class="step-line" data-step="0"><span class="step-badge">1 · الأسس</span> أوزان الثماني من اليمين: <span class="power-tag oct-p">8⁰=1</span> <span class="power-tag oct-p">8¹=8</span> <span class="power-tag oct-p">8²=64</span></div>
-          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الفكرة</span> في <code>26₈</code> ضربنا <code>6×1=6</code> و <code>2×8=16</code> فالمجموع <code>22₁₀</code>، وكل رقم ثماني = 3 بت لأن <code>8=2³</code>.</div>
+          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الفكرة</span> في <code>26₈</code> ضربنا <code>6×1=6</code> و <code>2×8=16</code> فالمجموع طلع <code>22₁₀</code>، وكل رقم ثماني بياخد 3 بت عشان <code>8=2³</code>.</div>
         </div>
       </div>
     </div>
@@ -742,26 +780,26 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="Decimal &amp; Hexadecimal in depth">
   <div class="title-bar reveal">
     <div class="kicker">Base 10 &amp; Base 16</div>
-    <h2>Decimal and Hexadecimal <span class="ar-inline">النظام العشري والسادس عشري</span></h2>
+    <h2>Decimal and Hexadecimal <span class="ar-inline">العشري والسادس عشري</span></h2>
   </div>
   <div class="body" style="gap:14px">
     <div class="row" style="flex:1">
       <div class="card dec grow col" style="gap:10px">
         <div class="row" style="justify-content:space-between;align-items:center">
-          <div><span class="bname" style="margin:0">Decimal</span><span class="ar">النظام العشري (الأساس 10)</span></div>
+          <div><span class="bname" style="margin:0">Decimal</span><span class="ar">النظام العشري (أساس 10)</span></div>
           <span class="badge dec">base 10</span>
         </div>
         <div class="eq" style="font-size:20px">347<sub>10</sub> = 300 + 40 + 7</div>
-        <p class="muted" style="font-size:16px"><strong>MSB</strong> (الخانة الأعلى وزناً) is on the far left; <strong>LSB</strong> (الأدنى وزناً) is on the far right.</p>
+        <p class="muted" style="font-size:16px"><strong>MSB</strong> (أعلى خانة في القيمة) is on the far left; <strong>LSB</strong> (أقل خانة في القيمة) is on the far right.</p>
         <div class="trace-strip" id="s6DecSteps">
           <div class="step-line" data-step="0"><span class="step-badge">1 · الأسس</span> أوزان العشري من اليمين: <span class="power-tag dec-p">10⁰=1</span> <span class="power-tag dec-p">10¹=10</span> <span class="power-tag dec-p">10²=100</span></div>
-          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الحساب</span> <code>7×1=7</code>، <code>4×10=40</code>، <code>3×100=300</code> → الناتج <code>347₁₀</code> (أقصى يسار MSB وأقصى يمين LSB).</div>
+          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الحساب</span> <code>7×1=7</code>، <code>4×10=40</code>، <code>3×100=300</code> → الناتج <code>347₁₀</code> (الـ MSB على الشمال خالص والـ LSB على اليمين خالص).</div>
         </div>
       </div>
 
       <div class="card hex grow col" style="gap:10px">
         <div class="row" style="justify-content:space-between;align-items:center">
-          <div><span class="bname" style="margin:0">Hexadecimal</span><span class="ar">النظام السادس عشري (الأساس 16)</span></div>
+          <div><span class="bname" style="margin:0">Hexadecimal</span><span class="ar">النظام السادس عشري (أساس 16)</span></div>
           <span class="badge hex">base 16</span>
         </div>
         <div class="eq" style="font-size:20px">1A<sub>16</sub> = (1×16) + (10×1) = 26<sub>10</sub></div>
@@ -777,7 +815,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
         </svg>
         <div class="trace-strip" id="s6HexSteps">
           <div class="step-line" data-step="0"><span class="step-badge">1 · الأسس والتجميع</span> أوزان السادس عشري: <span class="power-tag hex-p">16⁰=1</span> <span class="power-tag hex-p">16¹=16</span> وكل خانة Hex = 4 بت (Nibble).</div>
-          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الحساب</span> في <code>1A₁₆</code>: <code>A=10</code>، إذن <code>(1×16) + (10×1) = 16 + 10 = 26₁₀</code>.</div>
+          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الحساب</span> في <code>1A₁₆</code>: الـ <code>A</code> يعني <code>10</code>، يبقى <code>(1×16) + (10×1) = 16 + 10 = 26₁₀</code>.</div>
         </div>
       </div>
     </div>
@@ -789,7 +827,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="Conversions to and from Decimal">
   <div class="title-bar reveal">
     <div class="kicker">Conversions · Part 1 · التحويلات</div>
-    <h2>Working Through Decimal <span class="ar-inline">التحويل من وإلى النظام العشري</span></h2>
+    <h2>Working Through Decimal <span class="ar-inline">التحويل من وإلى العشري</span></h2>
   </div>
   <div class="body" style="gap:14px">
     <svg viewBox="0 0 1136 104" role="img" aria-label="Conversion hub diagram centered on Decimal" class="reveal" style="--d:.1s">
@@ -815,7 +853,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
     <div class="row" style="flex:1">
       <div class="card grow frag col" style="justify-content:space-between">
         <div>
-          <h3>Any Base → Decimal <span class="ar-inline">الجمع الموزون</span></h3>
+          <h3>Any Base → Decimal <span class="ar-inline">الضرب في الأساس وجمعهم</span></h3>
           <div class="eq mt" style="font-size:19px">1101<sub>2</sub> = 8 + 4 + 0 + 1 = <span class="c-dec">13<sub>10</sub></span></div>
         </div>
         <div class="trace-strip" id="s7Steps">
@@ -826,11 +864,11 @@ h1.hero{font-size:84px;margin-bottom:12px}
 
       <div class="card grow frag col" style="justify-content:space-between">
         <div>
-          <div class="ar" style="text-align:right;color:var(--warn);font-weight:700;font-size:16px;margin-bottom:2px">( مش علينا فالمنهج )</div>
+          <div class="ar" style="text-align:right;color:var(--warn);font-weight:700;font-size:16px;margin-bottom:2px">( مش علينا في المنهج )</div>
           <h3>Decimal → Base b <span class="ar-inline"><del style="text-decoration:line-through;text-decoration-thickness:2.5px;text-decoration-color:var(--bad);color:var(--tx-2)">القسمة المتكررة</del></span></h3>
           <div class="eq mt" style="font-size:18px;opacity:.75">13÷2→r<b>1</b> · 6÷2→r<b>0</b> · 3÷2→r<b>1</b> · 1÷2→r<b>1</b> → <span class="c-bin">1101<sub>2</sub></span></div>
         </div>
-        <div class="trace-strip"><span class="step-badge">ملاحظة</span> القسمة المتكررة للتحويل من العشري لباقي الأنظمة مش مقررة علينا في المنهج الحالي.</div>
+        <div class="trace-strip"><span class="step-badge">ملاحظة</span> خلي بالك: طريقة القسمة المتكررة للتحويل من العشري لباقي الأنظمة مش مقررة علينا دلوقتي.</div>
       </div>
     </div>
   </div>
@@ -848,23 +886,23 @@ h1.hero{font-size:84px;margin-bottom:12px}
     <div class="grid g2" style="flex:1">
       <div class="card oct frag col" style="justify-content:space-between">
         <div>
-          <h3>Binary ↔ Octal <span class="ar-inline">تجميع كل 3 خانات</span></h3>
+          <h3>Binary ↔ Octal <span class="ar-inline">تجميع كل 3 بت</span></h3>
           <div class="eq mt" style="font-size:20px"><span class="c-bin">010</span> <span class="c-bin">110</span><sub>2</sub> → <span class="c-oct">2</span> <span class="c-oct">6</span><sub>8</sub> = <span class="c-oct">26<sub>8</sub></span></div>
         </div>
         <div class="trace-strip" id="s8OctSteps">
-          <div class="step-line" data-step="0"><span class="step-badge">1 · التجميع بأسس 2</span> لأن <code>8 = 2³</code>، بنقسم من اليمين كل 3 بت بأوزان <span class="power-tag oct-p">2⁰ 2¹ 2²</span> ونكمل الشمال بصفر: <code>010 | 110</code>.</div>
-          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · القراءة</span> <code>010₂ = 2</code> و <code>110₂ = 4+2 = 6</code> → الناتج <code>26₈</code>.</div>
+          <div class="step-line" data-step="0"><span class="step-badge">1 · التجميع بأسس 2</span> عشان <code>8 = 2³</code>، بنقسم من اليمين كل 3 بت بأوزان <span class="power-tag oct-p">2⁰ 2¹ 2²</span> ونكمّل الشمال بصفر لو ناقص: <code>010 | 110</code>.</div>
+          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · القراءة</span> <code>010₂ = 2</code> و <code>110₂ = 4+2 = 6</code> → يطلع <code>26₈</code>.</div>
         </div>
       </div>
 
       <div class="card hex frag col" style="justify-content:space-between">
         <div>
-          <h3>Binary ↔ Hexadecimal <span class="ar-inline">تجميع كل 4 خانات</span></h3>
+          <h3>Binary ↔ Hexadecimal <span class="ar-inline">تجميع كل 4 بت</span></h3>
           <div class="eq mt" style="font-size:20px"><span class="c-bin">1010</span> <span class="c-bin">1111</span><sub>2</sub> → <span class="c-hex">A</span> <span class="c-hex">F</span><sub>16</sub> = <span class="c-hex">AF<sub>16</sub></span></div>
         </div>
         <div class="trace-strip" id="s8HexSteps">
-          <div class="step-line" data-step="0"><span class="step-badge">1 · التجميع بأسس 2</span> لأن <code>16 = 2⁴</code>، بنقسم من اليمين كل 4 بت بأوزان <span class="power-tag hex-p">2⁰ 2¹ 2² 2³</span>: <code>1010 | 1111</code>.</div>
-          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · القراءة</span> <code>1010₂ = 8+2 = 10 (A)</code> و <code>1111₂ = 8+4+2+1 = 15 (F)</code> → الناتج <code>AF₁₆</code>.</div>
+          <div class="step-line" data-step="0"><span class="step-badge">1 · التجميع بأسس 2</span> عشان <code>16 = 2⁴</code>، بنقسم من اليمين كل 4 بت بأوزان <span class="power-tag hex-p">2⁰ 2¹ 2² 2³</span>: <code>1010 | 1111</code>.</div>
+          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · القراءة</span> <code>1010₂ = 8+2 = 10 (A)</code> و <code>1111₂ = 8+4+2+1 = 15 (F)</code> → يطلع <code>AF₁₆</code>.</div>
         </div>
       </div>
     </div>
@@ -879,7 +917,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
     <h2>Fractional Numbers <span class="ar-inline">تحويل الكسور بعد العلامة</span></h2>
   </div>
   <div class="body" style="gap:14px">
-    <div class="callout reveal" style="--d:.1s">Digits after the <strong>Radix Point</strong> (الفاصلة) use negative powers: <code>b⁻¹</code>, <code>b⁻²</code>, <code>b⁻³</code>…</div>
+    <div class="callout reveal" style="--d:.1s">Digits after the <strong>Radix Point</strong> (العلامة العشرية/الثنائية) use negative powers: <code>b⁻¹</code>, <code>b⁻²</code>, <code>b⁻³</code>…</div>
     <div class="grid g2" style="flex:1">
       <div class="card bin frag col" style="justify-content:space-between">
         <div>
@@ -887,8 +925,8 @@ h1.hero{font-size:84px;margin-bottom:12px}
           <div class="eq mt" style="font-size:19px">10.101<sub>2</sub> = 2 + 0.5 + 0.125 = <span class="c-dec">2.625<sub>10</sub></span></div>
         </div>
         <div class="trace-strip" id="s9BinSteps">
-          <div class="step-line" data-step="0"><span class="step-badge">1 · الأسس السالبة</span> بعد العلامة نمشي يمين بأسس سالبة: <span class="power-tag">2⁻¹=0.5</span> <span class="power-tag">2⁻²=0.25</span> <span class="power-tag">2⁻³=0.125</span>.</div>
-          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الجمع</span> الصحيح <code>10₂ = 2</code> + الكسر <code>(1×0.5) + (0×0.25) + (1×0.125) = 0.625</code> → <code>2.625₁₀</code>.</div>
+          <div class="step-line" data-step="0"><span class="step-badge">1 · الأسس السالبة</span> بعد العلامة بنمشي يمين بأسس سالبة: <span class="power-tag">2⁻¹=0.5</span> <span class="power-tag">2⁻²=0.25</span> <span class="power-tag">2⁻³=0.125</span>.</div>
+          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · الجمع</span> الجزء الصحيح <code>10₂ = 2</code> + الكسر <code>(1×0.5) + (0×0.25) + (1×0.125) = 0.625</code> → يبقى <code>2.625₁₀</code>.</div>
         </div>
       </div>
 
@@ -898,8 +936,8 @@ h1.hero{font-size:84px;margin-bottom:12px}
           <div class="eq mt" style="font-size:18px">0.625×2=<b>1</b>.25 → 0.25×2=<b>0</b>.5 → 0.5×2=<b>1</b>.0 → <span class="c-bin">.101<sub>2</sub></span></div>
         </div>
         <div class="trace-strip" id="s9DecSteps">
-          <div class="step-line" data-step="0"><span class="step-badge">1 · الضرب المتكرر</span> نضرب الكسر في الأساس (<code>×2</code>): <code>0.625×2=1.25</code>، <code>0.25×2=0.5</code>، <code>0.5×2=1.0</code>.</div>
-          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · أخذ الصحيح</span> نأخذ الجزء الصحيح من أعلى لأسفل (<code>1</code>، <code>0</code>، <code>1</code>) حتى يصبح الكسر <code>0</code> → <code>.101₂</code>.</div>
+          <div class="step-line" data-step="0"><span class="step-badge">1 · الضرب المتكرر</span> بنضرب الكسر في الأساس (<code>×2</code>): <code>0.625×2=1.25</code>، <code>0.25×2=0.5</code>، <code>0.5×2=1.0</code>.</div>
+          <div class="step-line" data-step="1" style="margin-top:4px"><span class="step-badge">2 · أخذ الصحيح</span> بناخد الجزء الصحيح من فوق لتحت (<code>1</code>، <code>0</code>، <code>1</code>) لحد ما الكسر يبقى <code>0</code> → <code>.101₂</code>.</div>
         </div>
       </div>
     </div>
@@ -910,13 +948,13 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <!-- ============ SLIDE 10 — Binary Addition & Subtraction ============ -->
 <section class="slide" data-title="Binary addition &amp; subtraction">
   <div class="title-bar reveal">
-    <div class="kicker">Arithmetic · Part 1 · العمليات الحسابية</div>
-    <h2>Binary Addition &amp; Subtraction <span class="ar-inline">الجمع والطرح الثنائي</span></h2>
+    <div class="kicker">Arithmetic · Part 1 · الحسابات</div>
+    <h2>Binary Addition &amp; Subtraction <span class="ar-inline">الجمع والطرح في الثنائي</span></h2>
   </div>
   <div class="body" style="gap:14px">
     <div class="row" style="flex:1">
       <div class="card bin grow col">
-        <h3>Addition &amp; Carry <span class="ar-inline">الجمع والترحيل</span></h3>
+        <h3>Addition &amp; Carry <span class="ar-inline">الجمع والترحيل (Carry)</span></h3>
         <table class="t" style="font-size:17px">
           <tr><th>Operation</th><th>Sum</th><th>Carry (ترحيل)</th></tr>
           <tr><td>0+0 / 0+1</td><td>0 / 1</td><td>0</td></tr>
@@ -929,11 +967,11 @@ h1.hero{font-size:84px;margin-bottom:12px}
           <div>+ 0 1 0 1 &nbsp; (5)</div>
           <div class="res">&nbsp; 1 1 0 0 &nbsp; (12)</div>
         </div>
-        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> من اليمين: 1+1=0 مع carry 1، ثم 1+1+1=1 مع carry 1، ثم 1+1+0=0 مع carry 1، فنزل 1.</div>
+        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> من اليمين: 1+1=0 وبنرحّل 1، وبعدين 1+1+1=1 وبنرحّل 1، وبعدين 1+1+0=0 وبنرحّل 1، فينزل 1.</div>
       </div>
 
       <div class="card oct grow col">
-        <h3>Subtraction &amp; Borrow <span class="ar-inline">الطرح والاستلاف</span></h3>
+        <h3>Subtraction &amp; Borrow <span class="ar-inline">الطرح والاستلاف (Borrow)</span></h3>
         <table class="t" style="font-size:17px">
           <tr><th>Operation</th><th>Diff</th><th>Borrow (استلاف)</th></tr>
           <tr><td>0−0 / 1−1</td><td>0</td><td>0</td></tr>
@@ -946,7 +984,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
           <div>− 0 1 1 0 &nbsp; (6)</div>
           <div class="res">&nbsp; 0 1 0 0 &nbsp; (4)</div>
         </div>
-        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> خانة 0 ناقص 1 استلفت 2 من الشمال فبقت 2−1=1، واستمر الطرح ليطلع <code>0100₂ = 4</code>.</div>
+        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> الخانة اللي فيها 0 ناقص 1 استلفت 2 من اللي جنبها فبقت 2−1=1، وكملنا الطرح لحد ما طلع <code>0100₂ = 4</code>.</div>
       </div>
     </div>
   </div>
@@ -957,12 +995,12 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="Binary multiplication &amp; division">
   <div class="title-bar reveal">
     <div class="kicker">Arithmetic · Part 2 · الضرب والقسمة</div>
-    <h2>Binary Multiplication &amp; Division <span class="ar-inline">الضرب والقسمة الثنائية</span></h2>
+    <h2>Binary Multiplication &amp; Division <span class="ar-inline">الضرب والقسمة في الثنائي</span></h2>
   </div>
   <div class="body" style="gap:14px">
     <div class="row" style="flex:1">
       <div class="card bin grow col">
-        <h3>Binary Multiplication <span class="ar-inline">الضرب (إزاحة وجمع)</span></h3>
+        <h3>Binary Multiplication <span class="ar-inline">الضرب (شِفت وجمع)</span></h3>
         <div class="arith-box" style="font-size:18px">
           <div>&nbsp; &nbsp; &nbsp; 1 0 1 1 &nbsp; (11)</div>
           <div>&nbsp; &nbsp; × &nbsp; 1 0 1 &nbsp; (5)</div>
@@ -971,7 +1009,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
           <div>+ 1 0 1 1 · · &nbsp; (×1, shift 2)</div>
           <div class="res">&nbsp; 1 1 0 1 1 1 &nbsp; (55)</div>
         </div>
-        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> كل خانة في المضروب فيه بتنسخ <code>1011</code> أو أصفار مع إزاحة خانة لليسار ثم جمع الصفوف.</div>
+        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> كل خانة بنضرب فيها بتنزل <code>1011</code> أو أصفار وبنرحّل خانة للشمال، وفي الآخر بنجمع كله.</div>
       </div>
 
       <div class="card hex grow col">
@@ -983,7 +1021,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
           <div>&nbsp; &nbsp; &nbsp; 0 0 1 1</div>
           <div class="res">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 0 &nbsp; (Remainder = 0)</div>
         </div>
-        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> قارنا المقسوم عليه <code>11</code> مع كل جزء: لما يطابق نكتب <code>1</code> ونطرح، ولما يقل نكتب <code>0</code>.</div>
+        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> بنشوف المقسوم عليه <code>11</code> يكفي قد إيه من كل جزء: لو يكفي نكتب <code>1</code> ونطرح، ولو مبيكفيش نكتب <code>0</code>.</div>
       </div>
     </div>
   </div>
@@ -994,7 +1032,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="Octal &amp; Hexadecimal arithmetic">
   <div class="title-bar reveal">
     <div class="kicker">Arithmetic · Part 4</div>
-    <h2>Octal &amp; Hexadecimal Arithmetic <span class="ar-inline">حسابات الثماني والسادس عشري</span></h2>
+    <h2>Octal &amp; Hexadecimal Arithmetic <span class="ar-inline">الجمع والطرح في الثماني والسادس عشري</span></h2>
   </div>
   <div class="body" style="gap:14px">
     <div class="callout reveal" style="--d:.1s">Same rule in every base: carry <code>1</code> when sum ≥ <strong>Base</strong>, and borrow <strong>Base</strong> (<code>8</code> or <code>16</code>) when needed.</div>
@@ -1005,7 +1043,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
           <div class="arith-box grow" style="font-size:18px"><div class="carry">6+5=11=8+3</div><div>4 6<sub>8</sub></div><div>+ 2 5<sub>8</sub></div><div class="res">7 3<sub>8</sub></div></div>
           <div class="arith-box grow" style="font-size:18px"><div class="carry">borrow +8</div><div>6 2<sub>8</sub></div><div>− 2 5<sub>8</sub></div><div class="res">3 5<sub>8</sub></div></div>
         </div>
-        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> في الجمع طرحنا 8 ورحّلنا 1، وفي الطرح استلفنا 8 (10−5=5، ثم 5−2=3).</div>
+        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> في الجمع لو المجموع وصل 8 أو عدّاه بنطرح 8 ونرحّل 1، وفي الطرح بنستلف 8 (10−5=5، وبعدين 5−2=3).</div>
       </div>
 
       <div class="card hex frag col" style="justify-content:space-between">
@@ -1014,7 +1052,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
           <div class="arith-box grow" style="font-size:18px"><div class="carry">10+8=18=16+2</div><div>3 A<sub>16</sub></div><div>+ 1 8<sub>16</sub></div><div class="res">5 2<sub>16</sub></div></div>
           <div class="arith-box grow" style="font-size:18px"><div class="carry">borrow +16</div><div>4 2<sub>16</sub></div><div>− 1 A<sub>16</sub></div><div class="res">2 8<sub>16</sub></div></div>
         </div>
-        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> في الجمع A(10)+8=18 طرحنا 16 ورحّلنا 1، وفي الطرح استلفنا 16 (18−10=8، ثم 3−1=2).</div>
+        <div class="trace-strip"><span class="step-badge">كيف تمت؟</span> في الجمع A(10)+8=18 طرحنا 16 ورحّلنا 1، وفي الطرح استلفنا 16 (18−10=8، وبعدين 3−1=2).</div>
       </div>
     </div>
   </div>
@@ -1030,7 +1068,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
   <div class="body" style="gap:12px">
     <div class="card reveal" style="--d:.1s;padding:12px 18px">
       <div class="row" style="justify-content:space-between;align-items:center;margin-bottom:6px">
-        <h3 style="margin:0">8-Bit Interactive Register <span class="ar-inline">اضغط على الخانات لتغيير القيمة</span></h3>
+        <h3 style="margin:0">8-Bit Interactive Register <span class="ar-inline">دوس على الخانات عشان تغيّر القيمة</span></h3>
         <div class="row" style="gap:8px">
           <button class="btn" id="btnZero">Clear (0)</button>
           <button class="btn" id="btnMax">All Ones (255)</button>
@@ -1042,7 +1080,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
     <div class="grid g2" style="flex:1">
       <div class="card reveal" style="--d:.2s;display:flex;flex-direction:column;justify-content:space-between">
         <div>
-          <h3>Multi-Base Converter <span class="ar-inline">محوّل الأنظمة الفوري</span></h3>
+          <h3>Multi-Base Converter <span class="ar-inline">محوّل الأنظمة على طول</span></h3>
           <div class="row" style="align-items:center;gap:10px;margin:8px 0">
             <input type="text" id="convInput" value="178" style="width:160px" aria-label="Number input"/>
             <select id="convBase" aria-label="Input base">
@@ -1094,8 +1132,8 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <!-- ============ SLIDE 15 — Interactive Practice Arena ============ -->
 <section class="slide" data-title="Interactive Practice Arena (All Systems)">
   <div class="title-bar reveal">
-    <div class="kicker">Practice Arena · تدريبات تفاعلية</div>
-    <h2>Test Your Skills Across Every System <span class="ar-inline">مسائل تفاعلية على كل نظام</span></h2>
+    <div class="kicker">Practice Arena · تدريبات ومسائل</div>
+    <h2>Test Your Skills Across Every System <span class="ar-inline">جرّب حلك في كل نظام</span></h2>
   </div>
   <div class="body" style="gap:12px">
     <div class="row" style="justify-content:space-between;align-items:center">
@@ -1106,26 +1144,26 @@ h1.hero{font-size:84px;margin-bottom:12px}
     <div class="grid g2" style="flex:1">
       <div class="quiz-card" style="border-top:4px solid var(--bin)">
         <div class="row" style="justify-content:space-between;align-items:center">
-          <strong class="c-bin">1 · Binary Challenge <span class="ar-inline">النظام الثنائي</span></strong>
+          <strong class="c-bin">1 · Binary Challenge <span class="ar-inline">الثنائي</span></strong>
           <button class="btn" style="padding:3px 9px;font-size:13px" data-regen="bin">↻ New</button>
         </div>
         <div class="quiz-q" id="qBin">Convert 10110₂ to Decimal</div>
         <div class="quiz-row">
           <input type="text" id="inBin" placeholder="Answer..." aria-label="Binary challenge answer"/>
-          <button class="btn" data-check="bin">Check · تحقق</button>
+          <button class="btn" data-check="bin">Check · شوف الحل</button>
         </div>
         <div class="quiz-fb" id="fbBin"></div>
       </div>
 
       <div class="quiz-card" style="border-top:4px solid var(--oct)">
         <div class="row" style="justify-content:space-between;align-items:center">
-          <strong class="c-oct">2 · Octal Challenge <span class="ar-inline">النظام الثماني</span></strong>
+          <strong class="c-oct">2 · Octal Challenge <span class="ar-inline">الثماني</span></strong>
           <button class="btn" style="padding:3px 9px;font-size:13px" data-regen="oct">↻ New</button>
         </div>
         <div class="quiz-q" id="qOct">Convert 110101₂ to Octal</div>
         <div class="quiz-row">
           <input type="text" id="inOct" placeholder="Answer..." aria-label="Octal challenge answer"/>
-          <button class="btn" data-check="oct">Check · تحقق</button>
+          <button class="btn" data-check="oct">Check · شوف الحل</button>
         </div>
         <div class="quiz-fb" id="fbOct"></div>
       </div>
@@ -1138,20 +1176,20 @@ h1.hero{font-size:84px;margin-bottom:12px}
         <div class="quiz-q" id="qHex">Convert 2F₁₆ to Decimal</div>
         <div class="quiz-row">
           <input type="text" id="inHex" placeholder="Answer..." aria-label="Hex challenge answer"/>
-          <button class="btn" data-check="hex">Check · تحقق</button>
+          <button class="btn" data-check="hex">Check · شوف الحل</button>
         </div>
         <div class="quiz-fb" id="fbHex"></div>
       </div>
 
       <div class="quiz-card" style="border-top:4px solid var(--dec)">
         <div class="row" style="justify-content:space-between;align-items:center">
-          <strong class="c-dec">4 · Arithmetic Challenge <span class="ar-inline">العمليات الحسابية</span></strong>
+          <strong class="c-dec">4 · Arithmetic Challenge <span class="ar-inline">الحسابات</span></strong>
           <button class="btn" style="padding:3px 9px;font-size:13px" data-regen="arith">↻ New</button>
         </div>
         <div class="quiz-q" id="qArith">1011₂ + 0111₂ = ? (in Binary)</div>
         <div class="quiz-row">
           <input type="text" id="inArith" placeholder="Answer..." aria-label="Arithmetic challenge answer"/>
-          <button class="btn" data-check="arith">Check · تحقق</button>
+          <button class="btn" data-check="arith">Check · شوف الحل</button>
         </div>
         <div class="quiz-fb" id="fbArith"></div>
       </div>
@@ -1164,7 +1202,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
 <section class="slide" data-title="Summary &amp; Cheat Sheet">
   <div class="title-bar reveal">
     <div class="kicker">Wrap-Up · الخلاصة</div>
-    <h2>Key Takeaways &amp; Quick Reference <span class="ar-inline">جدول المراجعة السريعة</span></h2>
+    <h2>Key Takeaways &amp; Quick Reference <span class="ar-inline">جدول يلمّ الدنيا بسرعة</span></h2>
   </div>
   <div class="body" style="gap:14px">
     <div class="row" style="flex:1">
@@ -1194,7 +1232,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
             <li>Negative integers: Two's Complement (invert + 1).</li>
           </ul>
         </div>
-        <div class="callout ok">Questions? Ready for practice exercises! · بالتوفيق</div>
+        <div class="callout ok">جاهز تحل وتقفل؟ ربنا يوفقك يا بطل · CS101</div>
         <div class="callout" style="border-color:var(--hex);background:rgba(192,132,252,.09);font-size:16px;text-align:right" dir="rtl">( متنساش تدعي لوالدتي ربنا يرحمها )</div>
       </div>
     </div>
@@ -1553,7 +1591,7 @@ h1.hero{font-size:84px;margin-bottom:12px}
     const fb   = document.getElementById(fbId);
     if(!user){ fb.innerHTML = '<span class="c-warn">Type an answer first.</span>'; return; }
     if(user === ans){
-      fb.innerHTML = '<span class="c-ok">✓ Correct! إجابة صحيحة (' + ans + ')</span>';
+      fb.innerHTML = '<span class="c-ok">✓ Correct! عاش يا بطل! صح (' + ans + ')</span>';
     } else {
       fb.innerHTML = '<span class="c-bad">✗ Try again — Expected: ' + ans + '</span>';
     }
@@ -1570,6 +1608,18 @@ h1.hero{font-size:84px;margin-bottom:12px}
   });
   const btnAll = document.getElementById('btnNewAll');
   if(btnAll) btnAll.addEventListener('click', ()=>{ genBin(); genOct(); genHex(); genArith(); });
+
+
+  document.querySelectorAll('.quiz-row input').forEach(inp=>{
+    inp.addEventListener('keydown', e=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        const card = inp.closest('.quiz-card');
+        const btn = card && card.querySelector('[data-check]');
+        if(btn) btn.click();
+      }
+    });
+  });
 
   genBin(); genOct(); genHex(); genArith();
 })();
